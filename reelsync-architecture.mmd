@@ -1,0 +1,47 @@
+ReelSync System Architecture
+
+Overview
+ReelSync is a client-server application with a modular architecture:
+-Frontend: User interface for team collaboration  
+-Backend:API server for business logic and data management  
+-Database: Stores scripts, tasks, schedules, and media files
+
+ Frontend
+Tech: React.js + TailwindCSS  
+Purpose:Interfaces for script editing, task boards, calendars, and chat  
+Communication: REST API via Axios or WebSockets for real-time updates
+
+Backend
+Tech: Node.js + Express  
+Purpose: Handles authentication, data requests, team collaboration logic, and file management
+
+API Structure
+- `/api/auth` → Login / Register / Team management  
+- `/api/scripts` → Manage scripts and versioning  
+- `/api/tasks` → Create and update shot lists, tasks, schedules  
+- `/api/media` → Upload, view, and organize media files  
+- `/api/chat` → Team messaging and notifications  
+
+Database 
+Collections:
+- `users` — team members, roles, and permissions  
+- `projects` — film projects and their details  
+- `scripts` — versioned scripts per project  
+- `tasks` — shot lists, schedules, task status  
+- `media` — storyboards, clips, and reference files  
+- `chat` — messages, channels, and notifications  
+
+ Authentication Flow
+1. Team member logs in  
+2. Server issues JWT token  
+3. Frontend stores token in local storage  
+4. Token validates all future requests  
+
+ Communication Flow
+     User → Frontend (React)
+        ↓
+     Backend API (Node.js/Express)
+        ↓
+     Database (MongoDB)
+        ↓
+   Response → Frontend → Updates UI

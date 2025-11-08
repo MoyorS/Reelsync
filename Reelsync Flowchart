@@ -1,0 +1,41 @@
+[Start]/Dowwnload ReelSync
+   v
+[User opens ReelSync frontend]
+   v
+[Login/Register]
+   v
+[Frontend sends credentials to /api/auth]
+   v
+[Backend validates credentials & issues JWT]
+   v
+[Frontend stores JWT locally]
+   v
+[User authenticated?] --No-- [Show login error] --[Login/Register]
+  Yes
+   v
+[Dashboard / Project Selection]
+   v
+| User selects a feature:    
+   1. Scripts                
+   2. Tasks / Schedules       
+   3. Media Files        
+   4. Chat / Notifications
+   5. Project Updates
+   6. Reports
+   7. Settings
+   
+[Frontend sends API request to backend]
+   v
+[Backend processes request and interacts with DB]
+   v
+[Database fetches/updates requested data]
+   v
+[Backend responds with data or confirmation]
+   v
+[Frontend updates UI in real-time 
+   v
+[User performs further actions or logs out]
+   v
+[Logout]
+   v
+[End]
